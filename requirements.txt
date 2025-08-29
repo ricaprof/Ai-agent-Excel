@@ -1,3 +1,5 @@
 speechrecognition
 openpyxl
 pyaudio
+vosk
+sounddevice

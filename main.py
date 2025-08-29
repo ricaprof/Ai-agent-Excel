@@ -1,3 +1,6 @@
+from vosk import Model, KaldiRecognizer
+import sounddevice as sd
+import json
 import speech_recognition as sr
 import openpyxl
 from urllib.parse import quote
@@ -79,20 +82,20 @@ def interpretar_comando(comando):
         print("[AGENTE] Não entendi o comando.")
     return True
 
+model = Model("vosk-model")  # precisa baixar modelo do PT-BR do site do Vosk
+rec = KaldiRecognizer(model, 16000)
+
 def ouvir_comando():
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("\n[AGENTE] Fale seu comando:")
-        audio = r.listen(source)
-        try:
-            comando = r.recognize_google(audio, language="pt-BR")
-            print(f"[Você]: {comando}")
-            return comando
-        except sr.UnknownValueError:
-            print("[AGENTE] Não entendi o que você disse.")
-        except sr.RequestError:
-            print("[AGENTE] Erro no serviço de reconhecimento.")
-    return ""
+    print("\n[AGENTE] Fale seu comando (5s):")
+    audio = sd.rec(int(5 * 16000), samplerate=16000, channels=1, dtype='int16')
+    sd.wait()
+    
+    rec.AcceptWaveform(audio.tobytes())
+    result = json.loads(rec.Result())
+    comando = result.get("text", "").strip()
+    print(f"[Você]: {comando}")
+    return comando
+
 
 def main():
     inicializar_planilha()
