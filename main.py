@@ -36,7 +36,7 @@ def remover_produto(produto):
 def listar_produtos():
     wb = openpyxl.load_workbook(ARQUIVO)
     ws = wb.active
-    produtos = [row[0].value for row in ws.iter_rows(min_row=2, values_only=True) if row[0]]
+    produtos = [row[0] for row in ws.iter_rows(min_row=2, values_only=True) if row[0]]
     if produtos:
         print("[AGENTE] Sua lista contém:", ", ".join(produtos))
     else:
@@ -45,7 +45,7 @@ def listar_produtos():
 def enviar_lista():
     wb = openpyxl.load_workbook(ARQUIVO)
     ws = wb.active
-    produtos = [row[0].value for row in ws.iter_rows(min_row=2, values_only=True) if row[0]]
+    produtos = [row[0] for row in ws.iter_rows(min_row=2, values_only=True) if row[0]]
     if produtos:
         mensagem = "Lista de compras: " + ", ".join(produtos)
         link = f"https://wa.me/?text={quote(mensagem)}"
