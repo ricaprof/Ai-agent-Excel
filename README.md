@@ -8,7 +8,7 @@ Você pode falar de forma natural (*“coloca 2kg de arroz e três tomates”*) 
 ## 🚀 Instalação e Uso
 
 ### 1. Clone o repositório
-git clone https://github.com/seu-usuario/agente-compras.git
+git clone https://github.com/ricaprof/AI-agent-Excel.git 
 cd agente-compras
 
 ### 2. Instale as dependências
@@ -52,12 +52,14 @@ python agente_compras_llm.py
 ---
 
 ## 📂 Estrutura
-
+```
+.
 agente-compras/
 │── agente_compras_llm.py   # Código principal
 │── requirements.txt        # Dependências
 │── lista_compras.xlsx      # Gerado automaticamente
 └── README.md               # Este arquivo
+``` 
 
 ---
 
