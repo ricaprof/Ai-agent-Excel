@@ -1,5 +1,13 @@
 # 🛒 Agente de Compras com Voz + LLM
 
+---
+## Alunos: 
+  
+  - Ricardo Vinicius Moreira Vianna
+  - Ricardo Ryu Makino Magalhães
+  - Crystofer Samuel Demetino Dos Santos
+  ---
+
 Um assistente inteligente que cria e gerencia **lista de compras** usando **voz** e **LLM**.  
 Você pode falar de forma natural (*“coloca 2kg de arroz e três tomates”*) e o sistema entende, salva numa planilha Excel e ainda gera link para enviar no **WhatsApp**.
 
